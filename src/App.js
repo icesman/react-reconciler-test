@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [isVisible, setVisible] = useState(true);
+
   return (
-    <div className="App">
+    <div
+      className="App"
+      onClick={
+        () => {
+          setVisible(!isVisible)
+        }
+      }
+    >
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {
+          isVisible
+          && (<img src={logo} className="App-logo" alt="logo" />)
+        }
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
